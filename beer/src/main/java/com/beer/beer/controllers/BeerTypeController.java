@@ -3,9 +3,7 @@ package com.beer.beer.controllers;
 import com.beer.beer.Entities.BeerType;
 import com.beer.beer.repositories.BeerTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,9 @@ public class BeerTypeController {
         return (List<BeerType>) beerTypeRepository.findAll();
     }
 
+    @PostMapping("")
+    void addBeerType(@RequestBody BeerType beerType) {
+        beerTypeRepository.save(beerType);
+    }
 
 }
