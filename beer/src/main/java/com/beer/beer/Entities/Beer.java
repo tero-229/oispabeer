@@ -1,11 +1,6 @@
 package com.beer.beer.Entities;
 
-import org.hibernate.annotations.Table;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "beer")
@@ -17,7 +12,7 @@ public class Beer {
     private long BreweryId;
     private String name;
     private double alcohol;
-    private double pricePerLitre;
+    private double pricePerLiter;
     private int calories;
 
     public Beer() { }
@@ -54,12 +49,12 @@ public class Beer {
         this.alcohol = alcohol;
     }
 
-    public double getPricePerLitre() {
-        return pricePerLitre;
+    public double getPricePerLiter() {
+        return pricePerLiter;
     }
 
     public void setPricePerLitre(double pricePerLitre) {
-        this.pricePerLitre = pricePerLitre;
+        this.pricePerLiter = pricePerLitre;
     }
 
     public double getCalories() {

@@ -11,6 +11,7 @@ public class Brewery {
 
     private String name;
     private String address;
+    private String country;
     private String homepage;
     private int foundationYear;
 
@@ -46,6 +47,14 @@ public class Brewery {
 
     public void setHomepage(String homepage) {
         this.homepage = homepage;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public int getFoundationYear() {
