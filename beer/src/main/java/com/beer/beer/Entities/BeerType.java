@@ -9,7 +9,6 @@ public class BeerType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private int beerId;
     private String name;
 
     public BeerType() { }
@@ -20,14 +19,6 @@ public class BeerType {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public int getBeerId() {
-        return beerId;
-    }
-
-    public void setBeerId(int beerId) {
-        this.beerId = beerId;
     }
 
     public String getName() {

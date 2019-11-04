@@ -1,15 +1,14 @@
 package com.beer.beer.Entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "beerType")
 public class PackageType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private long beerId;
     private String type;
     private int size;
     private double price;
@@ -22,14 +21,6 @@ public class PackageType {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public long getBeerId() {
-        return beerId;
-    }
-
-    public void setBeerId(long beerId) {
-        this.beerId = beerId;
     }
 
     public String getType() {
