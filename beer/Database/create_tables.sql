@@ -17,16 +17,21 @@ CREATE TABLE beer (
     FOREIGN KEY(brewery_id) REFERENCES brewery(id)
 );
 
+CREATE TABLE beerType (
+    id                  SERIAL               PRIMARY KEY,
+    name                VARCHAR(20)          NOT NULL
+
+);
+
 CREATE TABLE beer_beerType (
     beer_id             INT             REFERENCES beer(id),
     beerType_id         INT             REFERENCES beerType(id),
     PRIMARY KEY(beer_id, beerType_id)
 );
 
-CREATE TABLE beerType (
-    id                  SERIAL               PRIMARY KEY,
-    name                VARCHAR(20)          NOT NULL
-
+CREATE TABLE ingredients (
+    id                  SERIAL              PRIMARY KEY,
+    name                VARCHAR(20)         NOT NULL
 );
 
 CREATE TABLE beer_ingredients (
@@ -35,10 +40,13 @@ CREATE TABLE beer_ingredients (
     PRIMARY KEY(beer_id, ingredients_id)
 );
 
-CREATE TABLE ingredients (
+CREATE TABLE packageType (
     id                  SERIAL              PRIMARY KEY,
-    name                VARCHAR(20)         NOT NULL
+    type                VARCHAR(20),
+    size                INT,
+    price               DECIMAL(6, 2)
 );
+
 
 CREATE TABLE beer_packageType (
     beer_id         INT                 REFERENCES beer(id),
@@ -46,12 +54,7 @@ CREATE TABLE beer_packageType (
     PRIMARY KEY(beer_id, packageType_id)
 );
 
-CREATE TABLE packageType (
-    id                  SERIAL              PRIMARY KEY,
-    type                VARCHAR(20),
-    size                INT,
-    price               DECIMAL(6, 2)
-);
+
 
 
 
