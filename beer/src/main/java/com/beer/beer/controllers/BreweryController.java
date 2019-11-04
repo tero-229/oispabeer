@@ -1,29 +1,27 @@
 package com.beer.beer.controllers;
 
-import com.beer.beer.Entities.Beer;
-import com.beer.beer.repositories.BeerRepository;
+import com.beer.beer.Entities.Brewery;
+import com.beer.beer.repositories.BreweryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This Controller handles all request regarding different beers.
+ * This controller handles all request regarding different breweries.
  */
 
 @RestController
-@RequestMapping("/beer")
-public class BeerController {
+@RequestMapping("/brewery")
+public class BreweryController {
 
     @Autowired
-    BeerRepository beerRepository;
+    BreweryRepository breweryRepository;
 
     @GetMapping("")
-    List<Beer> getAllBeers() {
-        return (List<Beer>) beerRepository.findAll();
+    List<Brewery> listAllBrewerys() {
+        return (List<Brewery>) breweryRepository.findAll();
     }
-
 }
