@@ -22,6 +22,7 @@ public class PopularityController {
 
     @PostMapping("")
     void addPopularity(@RequestBody Popularity popularity) {
+        popularity.setSearched(0);
         popularityRepository.save(popularity);
     }
 }
