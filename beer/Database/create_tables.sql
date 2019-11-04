@@ -4,5 +4,5 @@ CREATE TABLE brewery (
     address             CHAR(25),
     country             VARCHAR(25),
     homepage            VARCHAR(25),
-    foundation_year     INT,
-)
+    foundation_year     INT
+);
