@@ -3,7 +3,6 @@ package com.beer.beer.controllers;
 
 import com.beer.beer.Entities.PackageType;
 import com.beer.beer.repositories.PackageTypeRepository;
-import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

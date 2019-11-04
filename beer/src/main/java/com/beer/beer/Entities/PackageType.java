@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "packageType")
+
 public class PackageType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
