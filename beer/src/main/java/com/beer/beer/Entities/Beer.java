@@ -9,11 +9,14 @@ public class Beer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private long BreweryId;
     private String name;
     private double alcohol;
     private double pricePerLiter;
     private int calories;
+
+    @ManyToOne
+    @JoinColumn(name = "brewery_id")
+    private Brewery brewery;
 
     public Beer() { }
 
@@ -23,14 +26,6 @@ public class Beer {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public long getBreweryId() {
-        return BreweryId;
-    }
-
-    public void setBreweryId(long breweryId) {
-        BreweryId = breweryId;
     }
 
     public String getName() {
@@ -63,5 +58,13 @@ public class Beer {
 
     public void setCalories(int calories) {
         this.calories = calories;
+    }
+
+    public Brewery getBrewery() {
+        return brewery;
+    }
+
+    public void setBrewery(Brewery brewery) {
+        this.brewery = brewery;
     }
 }
