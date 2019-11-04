@@ -47,13 +47,18 @@ CREATE TABLE packageType (
     price               DECIMAL(6, 2)
 );
 
-
 CREATE TABLE beer_packageType (
     beer_id         INT                 REFERENCES beer(id),
     packageType_id  INT                 REFERENCES packageType(id),
     PRIMARY KEY(beer_id, packageType_id)
 );
 
+CREATE TABLE popularity (
+    id              SERIAL              PRIMARY KEY,
+    beer_id         INT,
+    searched        INT,
+    FOREIGN KEY(beer_id) REFERENCES beer(id)
+);
 
 
 
