@@ -18,13 +18,24 @@ CREATE TABLE beer (
 );
 
 CREATE TABLE beerType (
-    id                 SERIAL               PRIMARY KEY,
-    beer_id        INT,
-    name               VARCHAR(20)          NOT NULL,
+    id                  SERIAL               PRIMARY KEY,
+    beer_id             INT,
+    name                VARCHAR(20)          NOT NULL,
     FOREIGN KEY(beer_id) REFERENCES beer(id)
 );
 
 CREATE TABLE ingredients (
-    id
+    id                  SERIAL              PRIMARY KEY,
+    beer_id             INT,
+    name                VARCHAR(20)         NOT NULL,
+    FOREIGN KEY(beer_id) REFERENCES beer(id)
+);
 
+CREATE TABLE packageType (
+    id                  SERIAL              PRIMARY KEY,
+    beer_id             INT,
+    type                VARCHAR(20),
+    size                INT,
+    price               DECIMAL(6, 2),
+    FOREIGN KEY(beer_id) REFERENCES beer(id)
 );
