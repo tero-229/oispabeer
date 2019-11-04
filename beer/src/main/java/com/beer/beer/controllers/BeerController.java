@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/beer")
 public class BeerController {
-    
+
     @GetMapping("")
     List<String> getAllBeers() {
         //TODO toteuta metodi
