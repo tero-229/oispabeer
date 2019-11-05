@@ -38,5 +38,4 @@ public class BeerController {
 
         return beer;
     }
-
 }
