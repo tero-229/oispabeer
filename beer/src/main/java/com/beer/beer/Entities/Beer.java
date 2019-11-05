@@ -43,7 +43,7 @@ public class Beer {
     public void setAlcohol(double alcohol) {
         this.alcohol = alcohol;
     }
-    
+
     public double getCalories() {
         return calories;
     }

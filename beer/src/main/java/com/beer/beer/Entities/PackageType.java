@@ -11,7 +11,6 @@ public class PackageType {
 
     private String type;
     private int size;
-    private double price;
 
     public PackageType() { }
 
@@ -37,13 +36,5 @@ public class PackageType {
 
     public void setSize(int size) {
         this.size = size;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 }
