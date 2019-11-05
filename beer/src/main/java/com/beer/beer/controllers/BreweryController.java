@@ -28,3 +28,7 @@ public class BreweryController {
         breweryRepository.save(brewery);
     }
 }
+
+
+// TODO: Vaihda brewery taulukon adress pidemmäksi kuin 25.
+// TODO: Tee jokaiselle (beer, brewery ainkain) name attribuutista uniikki
