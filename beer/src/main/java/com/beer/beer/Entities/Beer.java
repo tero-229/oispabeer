@@ -11,7 +11,6 @@ public class Beer {
 
     private String name;
     private double alcohol;
-    private double pricePerLiter;
     private int calories;
     private int likes;
 
@@ -44,15 +43,7 @@ public class Beer {
     public void setAlcohol(double alcohol) {
         this.alcohol = alcohol;
     }
-
-    public double getPricePerLiter() {
-        return pricePerLiter;
-    }
-
-    public void setPricePerLitre(double pricePerLitre) {
-        this.pricePerLiter = pricePerLitre;
-    }
-
+    
     public double getCalories() {
         return calories;
     }

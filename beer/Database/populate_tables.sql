@@ -7,10 +7,10 @@ VALUES ('Hartwall', 'Hiomotie 32, 00371 Helsinki', 'Suomi', 'hartwall.fi', 1836)
 
 
 -- Lisätään panimoille muutama olut! HUOM! voi olla
-INSERT INTO beer(brewery_id, name, alcohol, calories)
-VALUES(1, 'Heineken', 5.0, 42),
-       (1, 'Heineken', 4.5, 41),
-       (1, 'Fosters', 4.5, 38);
+INSERT INTO beer(brewery_id, name, alcohol, calories, likes)
+VALUES(1, 'Heineken', 5.0, 42, 0),
+       (1, 'Heineken', 4.5, 41, 0),
+       (1, 'Fosters', 4.5, 38, 0);
 
 
 

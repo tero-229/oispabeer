@@ -26,6 +26,7 @@ public class BeerController {
 
     @PostMapping("")
     void addBeer(@RequestBody Beer beer) {
+        beer.setLikes(0);
         beerRepository.save(beer);
     }
 
