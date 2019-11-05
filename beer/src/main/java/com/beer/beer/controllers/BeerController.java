@@ -29,4 +29,13 @@ public class BeerController {
         beerRepository.save(beer);
     }
 
+    @PostMapping("/vote/{name}")
+    Beer plusVote(@PathVariable String name) {
+        Beer beer = beerRepository.findByName(name);
+        beer.addLike();
+        beerRepository.save(beer);
+
+        return beer;
+    }
+
 }

@@ -13,6 +13,7 @@ public class Beer {
     private double alcohol;
     private double pricePerLiter;
     private int calories;
+    private int likes;
 
     @ManyToOne
     @JoinColumn(name = "brewery_id")
@@ -66,5 +67,17 @@ public class Beer {
 
     public void setBrewery(Brewery brewery) {
         this.brewery = brewery;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public void addLike() {
+        likes = likes + 1;
     }
 }
