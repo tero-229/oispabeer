@@ -12,7 +12,7 @@ public class BeerService {
     @Autowired
     BeerRepository beerRepository;
 
-    public String getBestBeers() {
+    public String getBestBeersAsString() {
         String bestBeers = "Moikka! \nViikonloppu lähestyy, ja nyt on oiva hetki miettiä " +
                 "viikonlopun juomavalikoimaa\nTällä viikolla haetuimmat oluet ovat:\n\n";
 
