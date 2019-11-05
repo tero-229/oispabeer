@@ -54,6 +54,12 @@ CREATE TABLE beer_packageType (
     PRIMARY KEY(beer_id, packageType_id)
 );
 
+CREATE TABLE beeruser (
+    id              SERIAL              PRIMARY KEY,
+    username        VARCHAR(20),
+    email_address   VARCHAR(30)
+);
+
 
 
 
