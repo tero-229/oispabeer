@@ -1,7 +1,7 @@
 CREATE TABLE brewery (
     id                  SERIAL              PRIMARY KEY,
     name                VARCHAR(30)         NOT NULL UNIQUE,
-    address             CHAR(256),
+    address             VARCHAR(256),
     country             VARCHAR(25),
     homepage            VARCHAR(25),
     foundation_year     INT
@@ -14,7 +14,8 @@ CREATE TABLE beer (
     alcohol             DECIMAL(6, 2)       NOT NULL,
     calories            INT                 NOT NULL,
     likes               INT,
-    FOREIGN KEY(brewery_id) REFERENCES brewery(id)
+    FOREIGN KEY(brewery_id) REFERENCES brewery(id),
+    UNIQUE (name, alcohol)
 );
 
 CREATE TABLE beerType (
