@@ -1,6 +1,7 @@
 package com.beer.beer.controllers;
 
 import com.beer.beer.Entities.Beer;
+import com.beer.beer.Entities.User;
 import com.beer.beer.repositories.BeerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

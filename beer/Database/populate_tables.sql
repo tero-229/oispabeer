@@ -98,4 +98,9 @@ VALUES(14, 41),
        (17, 42),
        (18, 41);
 
+INSERT INTO beeruser(id, username, email_address)
+VALUES(666, 'anssirissa', 'anssirissa@gmail.com'),
+      (667, 'teromakila', 'tero.makila@hotmail.com'),
+      (668, 'malinkraft', 'malin.e.kraft@gmail.com');
+
 
