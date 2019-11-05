@@ -9,7 +9,7 @@ CREATE TABLE brewery (
 
 CREATE TABLE beer (
     id                  SERIAL              PRIMARY KEY,
-    brewery_id             INT,
+    brewery_id          INT,
     name                VARCHAR(30)         NOT NULL,
     alcohol             DECIMAL(6, 2)       NOT NULL,
     calories            INT                 NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE beer (
 
 CREATE TABLE beerType (
     id                  SERIAL               PRIMARY KEY,
-    name                VARCHAR(20)          NOT NULL
+    name                VARCHAR(20)          NOT NULL UNIQUE
 
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE beer_beerType (
 
 CREATE TABLE ingredients (
     id                  SERIAL              PRIMARY KEY,
-    name                VARCHAR(20)         NOT NULL
+    name                VARCHAR(20)         NOT NULL UNIQUE
 );
 
 CREATE TABLE beer_ingredients (
@@ -45,7 +45,7 @@ CREATE TABLE packageType (
     id                  SERIAL              PRIMARY KEY,
     type                VARCHAR(20),
     size                INT,
-    price               DECIMAL(6, 2)
+    UNIQUE (type, size)
 );
 
 CREATE TABLE beer_packageType (
