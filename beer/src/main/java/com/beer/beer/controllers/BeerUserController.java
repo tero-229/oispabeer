@@ -1,8 +1,7 @@
 package com.beer.beer.controllers;
 
-import com.beer.beer.Entities.Beer;
-import com.beer.beer.Entities.User;
-import com.beer.beer.repositories.UserRepository;
+import com.beer.beer.Entities.BeerUser;
+import com.beer.beer.repositories.BeerUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,13 +9,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class BeerUserController {
     @Autowired
-    UserRepository userRepository;
+    BeerUserRepository userRepository;
 
     @GetMapping("")
-    List<User> getAllUsers() {
-        return (List<User>) userRepository.findAll();
+    List<BeerUser> getAllUsers() {
+        return (List<BeerUser>) userRepository.findAll();
     }
 
    /* @GetMapping("/{username}")
@@ -25,7 +24,7 @@ public class UserController {
     }*/
 
     @PostMapping("/register/{username}")
-    User addUser(@RequestBody User user) {
+    BeerUser addUser(@RequestBody BeerUser user) {
         userRepository.save(user);
         return user;
 
