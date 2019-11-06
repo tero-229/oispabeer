@@ -29,6 +29,4 @@ public class BeerUserController {
         return user;
 
     }
-
-
 }

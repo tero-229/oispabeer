@@ -1,6 +1,9 @@
 package com.beer.beer.controllers;
 
+import com.beer.beer.Entities.BeerUser;
 import com.beer.beer.services.BeerService;
+//import com.beer.beer.services.UserService;
+import com.beer.beer.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,20 +12,22 @@ import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.ses.SesClient;
 import software.amazon.awssdk.services.ses.model.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/emailtest")
 public class SESController {
     @Autowired
     BeerService beerService;
+    @Autowired
+    UserService userService;
 
     private final String SENDER = "malin.e.kraft@gmail.com";
-    private final String TO = "malin.e.kraft@gmail.com";
     private final String SUBJECT = "Kokeile näitä oluita kovaan janoon";
-    // private final String MESSAGE = "Oispa kaljaa!";
+
 
     // TODO Pitää rakentaa lähetettävä message suosituksista.
     // TODO Pitää rakentaa lähetettävän viestin SUBJECT
-    // TODO Pitää lähettää suositukset useampaan osoitteeseen.
 
     private final SesClient sesClient = SesClient.builder()
             .region(Region.EU_CENTRAL_1)
@@ -33,7 +38,8 @@ public class SESController {
         String message = beerService.getBestBeers();
         SendEmailRequest sendEmailRequest = SendEmailRequest.builder()
                 .destination(Destination.builder()
-                        .toAddresses(TO)
+                        //.toAddresses(TO)
+                        .toAddresses(userService.getUsersEmail())
                         .build())
                 .message(Message.builder()
                         .body(Body.builder()

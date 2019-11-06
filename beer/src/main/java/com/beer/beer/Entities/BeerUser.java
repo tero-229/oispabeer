@@ -3,7 +3,7 @@ package com.beer.beer.Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "beeruser")
 public class BeerUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
