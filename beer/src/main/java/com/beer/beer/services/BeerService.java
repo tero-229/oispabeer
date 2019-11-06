@@ -39,11 +39,13 @@ public class BeerService {
                 kolmanneksiPidetty = beerList.get(i);
             }
         }
-        bestBeers += enitenPidetty.getName() + ", alkoholipitoisuus: " + enitenPidetty.getAlcohol() + "%\n"
-                + toiseksiPidetty.getName() + ", alkoholipitoisuus: " + toiseksiPidetty.getAlcohol() + "%\n"
-                + kolmanneksiPidetty.getName() + ", alkoholipitoisuus: " + kolmanneksiPidetty.getAlcohol() + "%\n\n" +
+        bestBeers += enitenPidetty.getName() + ", alkoholipitoisuus: " + enitenPidetty.getAlcohol() + "%, tästä on tykätty: " + enitenPidetty.getLikes() + "\n"
+                + toiseksiPidetty.getName() + ", alkoholipitoisuus: " + toiseksiPidetty.getAlcohol() + "%, tästä on tykätty: " + toiseksiPidetty.getLikes() + "\n"
+                + kolmanneksiPidetty.getName() + ", alkoholipitoisuus: " + kolmanneksiPidetty.getAlcohol() + "%, tästä on tykätty: " + kolmanneksiPidetty.getLikes() + "\n\n" +
                 "Mukavaa ja oluttäyteistä viikonloppua!";
 
+        // TODO poista ennen tuotantoa
+        System.out.println(bestBeers);
         return bestBeers;
     }
 }
