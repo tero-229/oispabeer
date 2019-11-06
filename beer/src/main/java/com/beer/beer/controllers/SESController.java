@@ -26,7 +26,6 @@ public class SESController {
     private final String SUBJECT = "Kokeile näitä oluita kovaan janoon";
 
 
-    // TODO Pitää rakentaa lähetettävä message suosituksista.
     // TODO Pitää rakentaa lähetettävän viestin SUBJECT
 
     private final SesClient sesClient = SesClient.builder()
@@ -35,7 +34,7 @@ public class SESController {
 
     @GetMapping("")
     String sendSES() {
-        String message = beerService.getBestBeers();
+        String message = beerService.getBestBeersAsString();
         SendEmailRequest sendEmailRequest = SendEmailRequest.builder()
                 .destination(Destination.builder()
                         //.toAddresses(TO)
