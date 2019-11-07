@@ -23,6 +23,12 @@ public class BeerController {
         return (List<Beer>) beerRepository.findAll();
     }
 
+    @GetMapping("/beer/{name}")
+    Beer findByName(@PathVariable String name) {
+        Beer beer = beerRepository.findByName(name);
+        return beer;
+    }
+
     @PostMapping("")
     void addBeer(@RequestBody Beer beer) {
         beer.setLikes(0);
