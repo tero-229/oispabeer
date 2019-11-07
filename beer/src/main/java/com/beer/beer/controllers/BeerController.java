@@ -19,7 +19,7 @@ public class BeerController {
     BeerRepository beerRepository;
 
     @GetMapping("")
-    List<Beer> getAllBeers() {
+    public List<Beer> getAllBeers() {
         return (List<Beer>) beerRepository.findAll();
     }
 
@@ -30,7 +30,7 @@ public class BeerController {
     }
 
     @PostMapping("")
-    void addBeer(@RequestBody Beer beer) {
+    public void addBeer(@RequestBody Beer beer) {
         beer.setLikes(0);
         beerRepository.save(beer);
     }
