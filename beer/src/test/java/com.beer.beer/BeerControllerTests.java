@@ -1,6 +1,7 @@
 package com.beer.beer;
 
 import com.beer.beer.Entities.Beer;
+import com.beer.beer.Entities.Brewery;
 import com.beer.beer.controllers.BeerController;
 import org.junit.Assert;
 import org.junit.Test;
@@ -55,4 +56,20 @@ public class BeerControllerTests {
         Assert.assertEquals(reference2, beer2);
     }
 
+    @Test
+    public void testGetBeerShouldReturnCorrectBeer() {
+        // Let's create a fake fucking brewery for the tests
+        Brewery banimo = new Brewery();
+        banimo.setName("Panimo");
+        // Let's create a real fucking beer for the tests and for the lulz
+        Beer kalexi = new Beer();
+        kalexi.setName("Karjala");
+        kalexi.setBrewery(banimo);
+        beerController.addBeer(kalexi);
+        // Let's try to find the beer we just added to beerController
+        Beer retvalBeer = beerController.findByName("Karjala");
+        retvalBeer.setBrewery(banimo);
+        Assert.assertEquals(kalexi.getName(), retvalBeer.getName());
+        Assert.assertEquals(kalexi.getBrewery(), retvalBeer.getBrewery());
+    }
 }

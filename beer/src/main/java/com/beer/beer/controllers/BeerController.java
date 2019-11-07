@@ -24,7 +24,7 @@ public class BeerController {
     }
 
     @GetMapping("/beer/{name}")
-    Beer findByName(@PathVariable String name) {
+    public Beer findByName(@PathVariable String name) {
         Beer beer = beerRepository.findByName(name);
         return beer;
     }
