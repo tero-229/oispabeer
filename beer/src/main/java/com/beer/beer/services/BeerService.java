@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BeerService {
@@ -22,26 +23,19 @@ public class BeerService {
             return "No beers for you!";
         }
 
-        // Käydään kaikki oluet läpi ja otetaan talteen kolme eniten haettua olutta
-        Beer enitenPidetty = beerList.get(0);
-        Beer toiseksiPidetty = beerList.get(1);
-        Beer kolmanneksiPidetty = beerList.get(2);
+        // Sortataan lista parhausjärjestykseen
+        List<Beer> beerListSorted =  beerList.stream()
+                .sorted((b1, b2) -> {return b2.getLikes() - b1.getLikes();})
+                .collect(Collectors.toList());
 
-        for (int i = 0; i < beerList.size(); i++) {
-            if (beerList.get(i).getLikes() > enitenPidetty.getLikes()) {
-                kolmanneksiPidetty = toiseksiPidetty;
-                toiseksiPidetty = enitenPidetty;
-                enitenPidetty = beerList.get(i);
-            } else if (beerList.get(i).getLikes() > toiseksiPidetty.getLikes()) {
-                kolmanneksiPidetty = toiseksiPidetty;
-                toiseksiPidetty = beerList.get(i);
-            } else if (beerList.get(i).getLikes() > kolmanneksiPidetty.getLikes()) {
-                kolmanneksiPidetty = beerList.get(i);
-            }
-        }
-        bestBeers += enitenPidetty.getName() + ", alkoholipitoisuus: " + enitenPidetty.getAlcohol() + "%\n"
-                + toiseksiPidetty.getName() + ", alkoholipitoisuus: " + toiseksiPidetty.getAlcohol() + "%\n"
-                + kolmanneksiPidetty.getName() + ", alkoholipitoisuus: " + kolmanneksiPidetty.getAlcohol() + "%\n\n" +
+        // otetaan talteen kolme parasta
+        Beer enitenPidetty = beerListSorted.get(0);
+        Beer toiseksiPidetty = beerListSorted.get(1);
+        Beer kolmanneksiPidetty = beerListSorted.get(2);
+
+        bestBeers += enitenPidetty.getName() + ", alkoholipitoisuus: " + enitenPidetty.getAlcohol() + "%, tästä on tykätty: " + enitenPidetty.getLikes() + "\n"
+                + toiseksiPidetty.getName() + ", alkoholipitoisuus: " + toiseksiPidetty.getAlcohol() + "%, tästä on tykätty: " + toiseksiPidetty.getLikes() + "\n"
+                + kolmanneksiPidetty.getName() + ", alkoholipitoisuus: " + kolmanneksiPidetty.getAlcohol() + "%, tästä on tykätty: " + kolmanneksiPidetty.getLikes() + "\n\n" +
                 "Mukavaa ja oluttäyteistä viikonloppua!";
 
         return bestBeers;

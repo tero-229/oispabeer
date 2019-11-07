@@ -15,7 +15,7 @@ import software.amazon.awssdk.services.ses.model.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/emailtest")
+@RequestMapping("/email")
 public class SESController {
     @Autowired
     BeerService beerService;
@@ -24,9 +24,6 @@ public class SESController {
 
     private final String SENDER = "malin.e.kraft@gmail.com";
     private final String SUBJECT = "Kokeile näitä oluita kovaan janoon";
-
-
-    // TODO Pitää rakentaa lähetettävän viestin SUBJECT
 
     private final SesClient sesClient = SesClient.builder()
             .region(Region.EU_CENTRAL_1)

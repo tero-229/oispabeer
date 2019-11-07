@@ -19,6 +19,7 @@ build/
 *.iws
 *.iml
 *.ipr
+*.properties
 out/
 
 ### NetBeans ###
@@ -30,3 +31,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+*.application.properties
+
