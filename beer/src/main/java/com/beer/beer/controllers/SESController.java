@@ -15,7 +15,7 @@ import software.amazon.awssdk.services.ses.model.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/emailtest")
+@RequestMapping("/email")
 public class SESController {
     @Autowired
     BeerService beerService;
